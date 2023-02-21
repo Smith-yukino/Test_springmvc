@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/Test_springmvc/Webapps" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/webapps/pom.xml" />
+        <option value="$PROJECT_DIR$/Test_springmvc/Webapps/pom.xml" />
+        <option value="$PROJECT_DIR$/Test_springmvc/Controoler/pom.xml" />
+        <option value="$PROJECT_DIR$/Test_springmvc/userService/pom.xml" />
+        <option value="$PROJECT_DIR$/Test_springmvc/userDao/pom.xml" />
+        <option value="$PROJECT_DIR$/Test_springmvc/userMappers/pom.xml" />
+        <option value="$PROJECT_DIR$/Test_springmvc/Entitys/pom.xml" />
+        <option value="$PROJECT_DIR$/Test_springmvc/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

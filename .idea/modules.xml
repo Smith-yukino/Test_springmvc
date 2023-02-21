@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Test_springmvc/Controoler/Controoler.iml" filepath="$PROJECT_DIR$/Test_springmvc/Controoler/Controoler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Test_springmvc/Entitys/Entitys.iml" filepath="$PROJECT_DIR$/Test_springmvc/Entitys/Entitys.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Test_springmvc/Test_springmvc.iml" filepath="$PROJECT_DIR$/Test_springmvc/Test_springmvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Test_springmvc/Webapps/Webapps.iml" filepath="$PROJECT_DIR$/Test_springmvc/Webapps/Webapps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Test_springmvc/userDao/userDao.iml" filepath="$PROJECT_DIR$/Test_springmvc/userDao/userDao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Test_springmvc/userMappers/userMappers.iml" filepath="$PROJECT_DIR$/Test_springmvc/userMappers/userMappers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Test_springmvc/userService/userService.iml" filepath="$PROJECT_DIR$/Test_springmvc/userService/userService.iml" />
+    </modules>
+  </component>
+</project>

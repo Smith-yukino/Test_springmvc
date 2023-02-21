@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Webapps:war">
+    <output-path>$PROJECT_DIR$/Test_springmvc/Webapps/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>false</exploded>
+        <module>Webapps</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="archive" name="Webapps-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Webapps:war exploded" />
+    </root>
+  </artifact>
+</component>

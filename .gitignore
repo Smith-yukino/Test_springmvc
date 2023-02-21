@@ -1,0 +1,7 @@
+# Project exclude paths
+/Test_springmvc/Controoler/target/
+/Test_springmvc/Entitys/target/
+/Test_springmvc/userDao/target/
+/Test_springmvc/userMappers/target/
+/Test_springmvc/userService/target/
+/Test_springmvc/Webapps/target/

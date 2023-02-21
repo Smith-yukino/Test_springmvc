@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Controoler" />
+        <module name="userMappers" />
+        <module name="Webapps" />
+        <module name="userDao" />
+        <module name="Entitys" />
+        <module name="userService" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Controoler" target="11" />
+      <module name="Entitys" target="11" />
+      <module name="Test_springmvc" target="11" />
+      <module name="userDao" target="11" />
+      <module name="userMappers" target="11" />
+      <module name="userService" target="11" />
+      <module name="Webapps" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
