@@ -12,6 +12,7 @@
   </parent>
 
   <artifactId>Entitys</artifactId>
+  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>Entitys</name>
@@ -21,8 +22,5 @@
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
-
-  <dependencies>
-  </dependencies>
 
 </project>
