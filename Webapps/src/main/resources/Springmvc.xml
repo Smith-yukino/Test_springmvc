@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--扫包-->
+    <context:component-scan base-package="org.Mapper" use-default-filters="false"><!-- 扫描全部 false -->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/><!-- 这里是包含 -->
+        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+
+
+
+    <!-- 配置页面渲染器 配置视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--绑定servlet的响应页面的view层，加入指定的前缀后缀-->
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+        <!--配置结果视图的前缀后缀，页面路径默认在webContent下/Page/表示jsp文件在test文件夹-->
+        <property name="prefix" value="/WEB-INF/jsp/User/"></property> <!--前缀-->
+        <property name="suffix" value=".jsp"></property><!--后缀-->
+    </bean>
+
+
+
+    <!-- 配置 MultipartResolver 文件上传配置 -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"></property>
+        <property name="maxUploadSize" value="1073741824"></property>
+        <property name="resolveLazily" value="true"></property>
+    </bean>
+
+
+    <!-- 配置视图  BeanNameViewResolver 解析器: 使用视图的名字来解析视图 -->
+    <!-- 通过 order 属性来定义视图解析器的优先级, order 值越小优先级越高 -->
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        <property name="order" value="100"></property>
+    </bean>
+
+    <!-- 静态资源  配置，但是配置后没有解析视图，需要再加一个driven 就能解析-->
+    <mvc:default-servlet-handler/>
+    <mvc:annotation-driven/>
+
+
+    <!-- 配置国际化资源文件 -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="i18n"></property>
+    </bean>
+
+    <!-- 配置SessionLocalResolver  根据 Session 中特定的属性确定本地化类型,SessionLocalResolver 会把local保存在session中-->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+    </bean>
+
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/><!--从请求参数中获取本次请求对应的本地化类型 国际化 i18n -->
+    </mvc:interceptors>
+
+
+
+    <!--fastdfs 配置扫描包-->
+    <context:component-scan base-package="com.github.tobato.fastdfs.service,com.github.tobato.fastdfs.domain"/>
+    <!--配置连接管理器-->
+    <bean id="trackerConnectionManager" class="com.github.tobato.fastdfs.conn.TrackerConnectionManager">
+        <constructor-arg name="pool" ref="fdfsConnectionPool">
+        </constructor-arg>
+        <!--配置fastDFS tracker 服务器 ip:port 地址-->
+        <property name="trackerList">
+            <list>
+                <value>192.168.31.188:22122</value>
+                <value>192.168.31.189:22122</value>
+            </list>
+        </property>
+    </bean>
+    <!--fastdfs 配置连接池-->
+    <bean id="fdfsConnectionPool" class="com.github.tobato.fastdfs.conn.FdfsConnectionPool">
+        <!--注入连接池配置-->
+        <constructor-arg name="config" >
+            <bean class="com.github.tobato.fastdfs.conn.ConnectionPoolConfig"/>
+        </constructor-arg>
+        <!--注入连接池工厂-->
+        <constructor-arg name="factory" >
+            <bean class="com.github.tobato.fastdfs.conn.PooledConnectionFactory"/>
+        </constructor-arg>
+    </bean>
+
+
+
+
+
+
+</beans>

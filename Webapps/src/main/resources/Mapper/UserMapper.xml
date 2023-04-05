@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.Mappers.UserMapper">
+
+    <resultMap type="org.Entity.User" id="userResult">
+        <result column="u_id" property="id"/>
+        <result column="u_name" property="name"/>
+        <result column="password" property="password"/>
+        <result column="sex" property="sex"/>
+        <result column="age" property="age"/>
+        <result column="salary" property="salary"/>
+        <result column="email" property="email"/>
+        <result column="path" property="path"/>
+        <result column="birth" property="birth"/>
+        <result column="group" property="group"/>
+
+        <association property="userCity" javaType="org.Entity.Addr"><!-- 1-1 or 1-n 都可以 关联字段不写-->
+            <id column="a_id" property="id"/>
+            <result column="a_name" property="city"/>
+        </association>
+    </resultMap>
+
+    <insert id="UserAdd" parameterType="org.Entity.User">
+        insert into `user`
+            <trim prefix="(" suffix=")">
+                `u_name`, `addr_id`, `password`, `sex`, `age`, `salary`, `email`, `path`, `birth`,`group`
+            </trim>
+        VALUES
+            <trim prefix="(" suffix=")">
+                #{name},#{userCity.id},#{password},#{sex},#{age},#{salary},#{email},#{path},#{birth},#{group}
+            </trim>
+    </insert>
+
+    <update id="UserEdit" parameterType="org.Entity.User">
+        update `user`
+        <set><!-- set 标签的作用：如果该标签包含的元素中有返回值，就插入 set ：如果 set 后面的字符串是 以逗号结尾的，就将这个逗号剔除 -->
+            <if test="name != null and name != ''">
+                `u_name` = #{name},
+            </if>
+            <if test="userCity.id != null and userCity.id != 0">
+                `addr_id` = #{userCity.id},
+            </if>
+            <if test="password != null and password != ''">
+                `password` = #{password},
+            </if>
+            <if test="sex != null and sex != 0">
+                `sex` = #{sex},
+            </if>
+            <if test="age != null and age != 0">
+                `age` = #{age},
+            </if>
+            <if test="salary != null and salary != 0">
+                `salary` = #{salary},
+            </if>
+            <if test="email != null and email != ''">
+                `email` = #{email},
+            </if>
+            <if test="path != null and path != ''">
+                `path` = #{path},
+            </if>
+            <if test="group != null and group != ''">
+                `group` = #{group},
+            </if>
+
+                `birth` = #{birth},
+        </set>
+            <where>
+                and u_id = #{id}
+            </where>
+    </update>
+
+    <delete id="UserDelete" parameterType="org.Entity.User">
+        delete from `user`
+            <where>
+                u_id = #{id}
+            </where>
+    </delete>
+
+    <select id="getAll" resultMap="userResult" parameterType="org.Entity.Page">
+        select * from `user` u,`addr` a
+            <where>
+                u.addr_id = a.a_id
+            </where>
+                limit #{sIndex},#{pageSize}
+
+    </select>
+    <select id="UserQueryCount" resultType="java.lang.Integer">
+        select count(*) from `user`
+    </select>
+    <select id="UserEdit_Query" resultType="org.Entity.User" resultMap="userResult">
+        select * from `user` u,`addr` a
+            <where>
+                u.addr_id = a.a_id and  `u_id` = #{id};
+            </where>
+    </select>
+
+</mapper>
