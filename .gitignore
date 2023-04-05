@@ -1,0 +1,7 @@
+# Project exclude paths
+/Controoler/target/
+/Entitys/target/
+/userDao/target/
+/userMappers/target/
+/userService/target/
+/Webapps/target/
