@@ -12,11 +12,13 @@
   <modules><!-- 聚合 -->
     <module>Webapps/pom.xml</module>
     <module>Controoler/pom.xml</module>
-    <module>UserService/pom.xml</module>
-    <module>UserDao/pom.xml</module>
+    <module>userService/pom.xml</module>
+    <module>userDao/pom.xml</module>
     <module>Entitys/pom.xml</module>
     <module>userMappers/pom.xml</module>
   </modules>
+
+
 
   <name>Test_springmvc</name>
 
@@ -235,6 +237,7 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-context-indexer</artifactId>
       <version>5.3.24</version>
+      <scope>optional</scope>
     </dependency>
 
     <dependency>
