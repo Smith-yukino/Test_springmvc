@@ -9,6 +9,8 @@
     <version>1.0-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
+  
+  <!-- 修改一次 -->
 
   <artifactId>Entitys</artifactId>
   <version>1.0-SNAPSHOT</version>
